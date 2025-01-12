@@ -1,8 +1,10 @@
 from settings import *
 from sys import exit
 
-# componens
+# components
 from game import Game
+from score import Score
+from preview import Preview
 
 class Main:
     def __init__(self):
@@ -15,6 +17,8 @@ class Main:
 
         # components
         self.game = Game()
+        self.score = Score()
+        self.preview = Preview()
 
     def run(self):
         while True:
@@ -26,7 +30,10 @@ class Main:
             # display
             self.display_surface.fill(GRAY)
 
+            # components
             self.game.run()
+            self.score.run()
+            self.preview.run()
 
             # updating game
             pygame.display.update()
